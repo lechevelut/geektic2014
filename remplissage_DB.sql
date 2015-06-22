@@ -44,3 +44,6 @@ VALUES ('4', '6');
 INSERT INTO CentreInteret_Utilisateur (FK_IdUtilisateur, FK_IdCentreInterer)
 VALUES ('5', '4');
 
+INSERT INTO Visite (FK_IdUtilisateur, InstantVisite, AdresseIp)
+VALUES ('1', DATE '2015-04-12', '192.168.1.10');
+

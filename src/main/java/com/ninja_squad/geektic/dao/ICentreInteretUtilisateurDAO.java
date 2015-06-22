@@ -9,8 +9,8 @@ public interface ICentreInteretUtilisateurDAO {
 
 	/**
 	 * 
-	 * @param id : ID de la visite
-	 * @return Visite
+	 * @param id : ID
+	 * @return CentreInteretUtilisateur
 	 */
 	public CentreInteretUtilisateur findById(int id);
 	
@@ -19,6 +19,6 @@ public interface ICentreInteretUtilisateurDAO {
 	 * @param u : utilisateur
 	 * @return List<CentreInteretUtilisateur>
 	 */
-	public List<CentreInteretUtilisateurDAO> findByUtilisateur(Utilisateur u);
+	public List<CentreInteretUtilisateur> findByUtilisateur(Utilisateur u);
 	
 }

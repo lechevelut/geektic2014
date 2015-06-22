@@ -7,42 +7,45 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import com.ninja_squad.geektic.CentreInteret;
+import com.ninja_squad.geektic.CentreInteretUtilisateur;
 import com.ninja_squad.geektic.Utilisateur;
-import com.ninja_squad.geektic.Visite;
 
 @Repository
-public class VisiteDAO implements IVisiteDAO {
+public class CentreInteretDAO implements ICentreInteretDAO {
 
 	private EntityManager entityManager;
 	
-	public VisiteDAO(EntityManager entityManager) {
+	public CentreInteretDAO(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 	
-	public VisiteDAO() {
+	public CentreInteretDAO() {
 		
 	}
 	
 	@Override
-	public Visite findById(int id) {
-		
+	public CentreInteret findById(int id) {
+
 		String requete = "";
-		requete = "SELECT v FROM Visite v WHERE v.id = :id" ;
+		requete = "SELECT ci FROM CentreInteret ci WHERE ci.id = :id" ;
 		Query query = entityManager.createQuery(requete);
 		query.setParameter("id", id);
-		return (Visite) query.getSingleResult();
+		return (CentreInteret) query.getSingleResult();
 		
 	}
 
 	@Override
-	public List<Visite> findByUtilisateur(Utilisateur u) {
+	public List<CentreInteret> findByLibelle(String label) {
 
 		String requete = "";
-		requete = "SELECT v FROM Visite v WHERE v.utilisateur.id = :utilisateur" ;
+		requete = "SELECT ci FROM CentreInteret ci WHERE ci.libelle = :libelle" ;
 		Query query = entityManager.createQuery(requete);
-		query.setParameter("utilisateur", u.id);
+		query.setParameter("libelle", label);
 		return query.getResultList();
 		
 	}
 
+	
+	
 }

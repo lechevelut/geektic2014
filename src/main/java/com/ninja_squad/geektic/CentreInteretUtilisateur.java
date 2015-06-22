@@ -1,7 +1,5 @@
 package com.ninja_squad.geektic;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,6 +22,6 @@ public class CentreInteretUtilisateur {
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_IdCentreInterer")
-	public CentreInteret prenom;
+	public CentreInteret centreInteret;
 	
 }

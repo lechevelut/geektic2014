@@ -8,7 +8,6 @@ import com.ninja_squad.geektic.Utilisateur;
  */
 public class HelloMessage {
     public String getMessage() {
-    	Utilisateur u1 = new Utilisateur();
         return "Hello, Geek!";
     }
 }

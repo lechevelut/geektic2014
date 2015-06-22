@@ -5,14 +5,21 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import com.ninja_squad.geektic.Utilisateur;
 
+@Repository
 public class UtilisateurDAO implements IUtilisateurDAO{
 
 	private EntityManager entityManager;
 	
 	public UtilisateurDAO(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+	
+	public UtilisateurDAO () {
+		
 	}
 	
 	@Override
