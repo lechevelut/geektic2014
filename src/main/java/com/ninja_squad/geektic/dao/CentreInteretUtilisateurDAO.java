@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import com.ninja_squad.geektic.Utilisateur;
 @Deprecated
 public class CentreInteretUtilisateurDAO implements ICentreInteretUtilisateurDAO {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@Deprecated

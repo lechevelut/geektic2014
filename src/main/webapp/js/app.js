@@ -6,16 +6,31 @@ app.controller('HelloCtrl', function($scope, $http) {
     });
 });
 
-app.controller('RechercheController', function($scope, $http) {
-    $http.get('/api/rechercher').success(function(listeUtilisateur) {
+app.controller('RechercheController', function($scope, $http, $routeParams) {
+    $http.get("/api/rechercher/"+$routeParams.centreInteret+"/"+$routeParams.civilite).success(function(listeUtilisateur) {
         $scope.listeUtilisateur = listeUtilisateur;
     });
+});
+
+app.controller('RechercheInteretController', function ($scope,$http) {
+	$http.get("api/recherche/centreInteret").success(function(data) {
+		$scope.listeInteret = data;
+	});
 });
 
 app.config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
-                    when('/RechercheListeUtilisateur', {
-                        templateUrl: 'user/RechercheListeUtilisateur.html'
+                    when('/RechercheListeUtilisateur/:centreInteret/:civilite', {
+                        templateUrl: 'user/AfficherListeUtilisateur.html'
+                    })
+            }]);
+
+app.config(['$routeProvider',
+            function($routeProvider) {
+                $routeProvider.
+                    when('/RechercheUtilisateur', {
+                        templateUrl: 'user/RechercherUtilisateur.html',
+                        controller: 'RechercheInteretController'
                     })
             }]);

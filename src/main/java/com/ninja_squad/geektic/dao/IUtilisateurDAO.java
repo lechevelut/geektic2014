@@ -27,4 +27,19 @@ public interface IUtilisateurDAO {
 	 */
 	public List<Utilisateur> findByPrenom(String prenom);
 	
+	/**
+	 * 
+	 * @param centreInteret : centre interet de l'utilisateur
+	 * @return list<Utilisateur>
+	 */
+	public List<Utilisateur> findByCentreInteret(String centreInteret);
+	
+	/**
+	 * 
+	 * @param centreInteret : centre interet de l'utilisateur
+	 * @param civilite : sexe cherché
+	 * @return list<Utilisateur>
+	 */
+	public List<Utilisateur> findByCentreInteretEtCivilite(String centreInteret, String civilite);
+	
 }

@@ -1,0 +1,12 @@
+<h2>Critères de recherche</h2>
+<FORM id = "recherche">
+<SELECT ng-model="civilite" name="civilite" size="1">
+<OPTION value="Homme">Homme
+<OPTION value="Femme">Femme
+</SELECT>
+
+<SELECT ng-model="interet" name="interet" size="1">
+	<OPTION ng-repeat="centreInteret in listeInteret" value="{{centreInteret.id}}">{{ centreInteret.libelle }}
+</SELECT>
+</FORM>
+<a href="#/RechercheListeUtilisateur/{{interet}}/{{civilite}}">Cliquez ici</a>

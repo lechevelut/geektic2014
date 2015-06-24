@@ -5,8 +5,10 @@ import java.util.List;
 import com.ninja_squad.geektic.CentreInteretUtilisateur;
 import com.ninja_squad.geektic.Utilisateur;
 
+@Deprecated
 public interface ICentreInteretUtilisateurDAO {
 
+	@Deprecated
 	/**
 	 * 
 	 * @param id : ID
@@ -14,6 +16,7 @@ public interface ICentreInteretUtilisateurDAO {
 	 */
 	public CentreInteretUtilisateur findById(int id);
 	
+	@Deprecated
 	/**
 	 * Recherche tous les centre d'interet d'un utilisateur passé en paramètre
 	 * @param u : utilisateur

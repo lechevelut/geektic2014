@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import com.ninja_squad.geektic.Utilisateur;
 @Repository
 public class CentreInteretDAO implements ICentreInteretDAO {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public CentreInteretDAO(EntityManager entityManager) {
@@ -25,7 +27,7 @@ public class CentreInteretDAO implements ICentreInteretDAO {
 	}
 	
 	@Override
-	public CentreInteret findById(int id) {
+	public CentreInteret findById(String id) {
 
 		String requete = "";
 		requete = "SELECT ci FROM CentreInteret ci WHERE ci.id = :id" ;
@@ -46,6 +48,14 @@ public class CentreInteretDAO implements ICentreInteretDAO {
 		
 	}
 
-	
+	@Override
+	public List<CentreInteret> findAll() {
+
+		String requete = "";
+		requete = "SELECT ci FROM CentreInteret ci" ;
+		Query query = entityManager.createQuery(requete);
+		return query.getResultList();
+		
+	}
 	
 }

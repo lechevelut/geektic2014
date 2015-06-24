@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,7 @@ import com.ninja_squad.geektic.Utilisateur;
 @Repository
 public class UtilisateurDAO implements IUtilisateurDAO{
 
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public UtilisateurDAO(EntityManager entityManager) {
@@ -51,6 +53,35 @@ public class UtilisateurDAO implements IUtilisateurDAO{
 		requete = "SELECT u FROM Utilisateur u WHERE u.prenom = :prenom" ;
 		Query query = entityManager.createQuery(requete);
 		query.setParameter("prenom", prenom);
+		return query.getResultList();
+		
+	}
+
+	@Override
+	public List<Utilisateur> findByCentreInteret(String centreInteret) {
+
+		String requete = "";
+		requete = "SELECT u FROM CentreInteretUtilisateur ciu "
+				+ "INNER JOIN ciu.utilisateur u "
+				+ "INNER JOIN ciu.centreInteret ci "
+				+ "WHERE ci.libelle = :labelCentreInteret" ;
+		Query query = entityManager.createQuery(requete);
+		query.setParameter("labelCentreInteret", centreInteret);
+		return query.getResultList();
+		
+	}
+
+	@Override
+	public List<Utilisateur> findByCentreInteretEtCivilite(String centreInteret, String civilite) {
+
+		String requete = "";
+		requete = "SELECT u FROM CentreInteretUtilisateur ciu "
+				+ "INNER JOIN ciu.utilisateur u "
+				+ "INNER JOIN ciu.centreInteret ci "
+				+ "WHERE ci.id = :centreInteret AND u.civilite = :civilite" ;
+		Query query = entityManager.createQuery(requete);
+		query.setParameter("centreInteret", centreInteret);
+		query.setParameter("civilite", civilite);
 		return query.getResultList();
 		
 	}

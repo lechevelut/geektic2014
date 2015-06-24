@@ -29,14 +29,14 @@ public class CentreInteretDAOTest extends BaseDaoTest {
     @Test
     public void findByIdTest() {
     	String expected = "C#";
-    	CentreInteret centreInteret = dao.findById(1);
+    	CentreInteret centreInteret = dao.findById("1");
 		assertEquals(expected, centreInteret.libelle);
     	
     }
     
     @Test
     public void findByLibelleTest() {
-    	int expected = 1;
+    	String expected = "1";
     	List<CentreInteret> listecentreInteret = dao.findByLibelle("C#");
 		assertEquals(expected, listecentreInteret.get(0).id);
     	

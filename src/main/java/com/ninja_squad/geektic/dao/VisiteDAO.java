@@ -3,6 +3,7 @@ package com.ninja_squad.geektic.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import com.ninja_squad.geektic.Visite;
 @Repository
 public class VisiteDAO implements IVisiteDAO {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public VisiteDAO(EntityManager entityManager) {

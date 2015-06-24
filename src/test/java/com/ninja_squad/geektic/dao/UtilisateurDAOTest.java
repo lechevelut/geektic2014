@@ -32,7 +32,7 @@ public class UtilisateurDAOTest extends BaseDaoTest {
     	Utilisateur u1 = dao.findById(1);
 		assertEquals(expected, u1.prenom);
 		
-		assertEquals(3, dao.findById(1).listeCentreInteret.get(0).id);
+		assertEquals("3", dao.findById(1).listeCentreInteret.get(0).id);
     	
     }
     
@@ -51,4 +51,21 @@ public class UtilisateurDAOTest extends BaseDaoTest {
     	assertEquals(expected, listeUtilisateur.get(0).id);
     	
     }
+    
+    @Test
+    public void findByCentreInteretTest() {
+    	int expected = 1;
+    	List<Utilisateur> listeUtilisateur = dao.findByCentreInteret("C++");
+    	assertEquals(expected, listeUtilisateur.get(0).id);
+    	
+    }
+    
+    @Test
+    public void findByCentreInteretEtCiviliteTest() {
+    	int expected = 1;
+    	List<Utilisateur> listeUtilisateur = dao.findByCentreInteretEtCivilite("3", "Homme");
+    	assertEquals(expected, listeUtilisateur.get(0).id);
+    	
+    }
+    
 }
